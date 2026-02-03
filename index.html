@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>人生決策結構分析（紫微 × 現實）</title>
-  <meta name="description" content="不是算命。結合紫微斗數與現實條件，整理你當下關鍵決策的風險、節奏與行動建議。" />
+  <title>人生決策結構分析</title>
+  <meta name="description" content="結合結構分析與現實條件，協助你釐清當下重要決策的風險、節奏與行動方向。" />
   <style>
     :root{
       --bg:#0b0f19; --card:#11172a; --muted:#a7b0c3; --text:#eef2ff;
@@ -12,9 +12,12 @@
     }
     *{box-sizing:border-box}
     body{
-      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Noto Sans TC", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+                   "Noto Sans TC", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
       background: radial-gradient(1200px 800px at 20% 0%, #1a1f36 0%, var(--bg) 55%);
-      color:var(--text); line-height:1.6;
+      color:var(--text);
+      line-height:1.6;
     }
     a{color:inherit; text-decoration:none}
     .wrap{max-width:980px; margin:0 auto; padding:28px 18px 80px}
@@ -23,12 +26,18 @@
       position:sticky; top:0; padding:12px 0; backdrop-filter: blur(10px);
     }
     .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.5px}
-    .dot{width:10px; height:10px; border-radius:999px; background:linear-gradient(135deg,var(--accent),#60a5fa)}
+    .dot{width:10px; height:10px; border-radius:999px;
+         background:linear-gradient(135deg,var(--accent),#60a5fa)}
     .nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
     .nav a{font-size:14px; color:var(--muted)}
     .nav a:hover{color:var(--text)}
+
     .hero{margin-top:22px; display:grid; grid-template-columns:1.2fr .8fr; gap:18px}
-    @media (max-width:860px){ .hero{grid-template-columns:1fr} .topbar{position:relative} }
+    @media (max-width:860px){
+      .hero{grid-template-columns:1fr}
+      .topbar{position:relative}
+    }
+
     .card{
       background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
       border:1px solid rgba(255,255,255,.08);
@@ -36,238 +45,186 @@
       box-shadow: 0 10px 35px rgba(0,0,0,.25);
     }
     .kicker{color:var(--muted); font-size:14px}
-    h1{margin:10px 0 10px; font-size:34px; line-height:1.15}
+    h1{margin:10px 0; font-size:34px; line-height:1.15}
+    h2{margin:0 0 10px; font-size:20px}
     .lead{color:#dbe4ff; font-size:16px; margin:0 0 16px}
-    .pillrow{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 0}
-    .pill{
-      font-size:12px; color:#d6dcff; border:1px solid rgba(255,255,255,.12);
-      background:rgba(124,58,237,.12); padding:6px 10px; border-radius:999px;
-    }
+
     .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
     .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:8px;
-      padding:11px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06); cursor:pointer; font-weight:600;
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:11px 16px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      font-weight:600; cursor:pointer;
     }
     .btn.primary{
       background:linear-gradient(135deg, var(--accent), #2563eb);
-      border-color: rgba(255,255,255,.12);
     }
     .btn.success{
       background:linear-gradient(135deg, var(--accent2), #16a34a);
-      border-color: rgba(255,255,255,.12);
     }
     .btn:hover{transform: translateY(-1px)}
+
     .small{font-size:13px; color:var(--muted)}
-    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px}
+    .pillrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
+    .pill{
+      font-size:12px; padding:6px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(124,58,237,.12); color:#d6dcff;
+    }
+
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:22px}
     @media (max-width:860px){ .grid{grid-template-columns:1fr} }
-    h2{margin:0 0 10px; font-size:20px}
+
     ul{margin:10px 0 0; padding-left:18px; color:#dbe4ff}
-    .section{margin-top:22px}
+    .section{margin-top:28px}
     .split{display:grid; grid-template-columns:1fr 1fr; gap:14px}
     @media (max-width:860px){ .split{grid-template-columns:1fr} }
-    .priceBox{display:flex; flex-direction:column; gap:10px}
+
     .price{font-size:28px; font-weight:800}
-    .tag{display:inline-flex; font-size:12px; color:#cbd5ff; padding:4px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:rgba(34,197,94,.10)}
-    .faq h3{margin:14px 0 6px; font-size:16px}
     .line{height:1px; background:rgba(255,255,255,.10); margin:18px 0}
-    footer{margin-top:26px; color:var(--muted); font-size:12px}
     .notice{
       border-left:3px solid rgba(124,58,237,.8);
-      padding:10px 12px; background:rgba(124,58,237,.10); border-radius:12px;
-      color:#dbe4ff;
+      padding:10px 12px;
+      background:rgba(124,58,237,.10);
+      border-radius:12px;
     }
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+    footer{margin-top:32px; font-size:12px; color:var(--muted)}
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="topbar">
-      <div class="brand"><span class="dot"></span> 人生決策結構分析</div>
-      <div class="nav">
-        <a href="#who">適合誰</a>
-        <a href="#deliver">你會拿到什麼</a>
-        <a href="#pricing">價格與流程</a>
-        <a href="#faq">常見問題</a>
-        <a href="#contact">聯絡</a>
-      </div>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span> 人生決策結構分析</div>
+    <div class="nav">
+      <a href="#who">適合誰</a>
+      <a href="#deliver">服務內容</a>
+      <a href="#pricing">價格</a>
+      <a href="#faq">FAQ</a>
     </div>
-
-    <!-- HERO -->
-    <div class="hero">
-      <div class="card">
-        <div class="kicker">不是算命｜紫微斗數 × 現實條件 × 結構分析</div>
-        <h1>我不幫你預測命運，<br/>我幫你把人生關鍵決定「想清楚」。</h1>
-        <p class="lead">
-          適合卡在轉職、家庭、財務、壓力節奏的人。你的人生仍由你決定，我只負責把風險、節奏與行動選項攤開。
-        </p>
-
-        <div class="ctaRow">
-          <!-- TODO: 把 FORM_URL 換成你的 Google 表單連結 -->
-          <a class="btn primary" href="https://forms.gle/WNTmAMHUHEKQfpdZ9" target="_blank" rel="noopener">立即填寫資料表（開始分析）</a>
-          <a class="btn" href="#pricing">先看價格與流程</a>
-        </div>
-        <p class="small">你填完表單後，我會在指定交付時間內提供「文字報告」，可加購 30 分鐘通話。</p>
-
-        <div class="pillrow">
-          <span class="pill">轉職/換跑道</span>
-          <span class="pill">房貸/財務壓力</span>
-          <span class="pill">生小孩/家庭節奏</span>
-          <span class="pill">該守還是該動</span>
-          <span class="pill">避免做錯決定</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>你會得到的不是「好話」</h2>
-        <p class="small">而是一份能拿來做決策的「結構」。</p>
-        <div class="line"></div>
-        <div class="notice">
-          <div><strong>我會做：</strong>分析節奏、拆風險、給可執行建議。</div>
-          <div><strong>我不做：</strong>保證結果、投資明牌、情緒安慰式回答。</div>
-        </div>
-        <div class="line"></div>
-        <div class="small">
-          你可以把這份報告當成：<br/>
-          「人生重大決策前的一次風險盤點」。
-        </div>
-      </div>
-    </div>
-
-    <!-- WHO -->
-    <div id="who" class="section grid">
-      <div class="card">
-        <h2>適合你，如果你…</h2>
-        <ul>
-          <li>正在卡在「要不要換／要不要動」的抉擇</li>
-          <li>不想聽空話，只想知道風險與節奏</li>
-          <li>願意為「少走錯路」付費</li>
-          <li>可以接受務實、直接的建議</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h2>不適合你，如果你…</h2>
-        <ul>
-          <li>想要我保證結果（任何人都不該保證）</li>
-          <li>只想聽好話或求心安</li>
-          <li>想問投資明牌／短期暴富</li>
-          <li>把分析當成唯一依據，不願承擔選擇</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h2>常見諮詢主題</h2>
-        <ul>
-          <li>轉職／換工作：現在該守還是該換？</li>
-          <li>家庭／生小孩：節奏怎麼排比較不崩？</li>
-          <li>財務／房貸：該加速還款還是保現金？</li>
-          <li>壓力：為什麼我一直覺得卡、什麼時候會鬆？</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- DELIVER -->
-    <div id="deliver" class="section card">
-      <h2>你會拿到什麼</h2>
-      <div class="split">
-        <div>
-          <ul>
-            <li><strong>客製化文字報告</strong>（聚焦你的問題，不寫一堆星曜百科）</li>
-            <li><strong>未來 3～5 年節奏</strong>：責任期／轉換期／該守與可動</li>
-            <li><strong>決策風險提示</strong>：最容易踩雷的點與避法</li>
-            <li><strong>可執行行動建議</strong>：下一步怎麼做比較不後悔</li>
-          </ul>
-          <p class="small">交付內容會刻意保持「可用、可做、可檢查」，避免玄學式模糊語。</p>
-        </div>
-        <div class="notice">
-          <strong>定位說明</strong><br/>
-          我不做「你一定會怎樣」的預言。<br/>
-          我做的是：在你目前條件下，<br/>
-          什麼選擇的風險更高、哪段時間更適合守或變。
-        </div>
-      </div>
-    </div>
-
-    <!-- PRICING -->
-    <div id="pricing" class="section split">
-      <div class="card priceBox">
-        <div class="tag">入門最推薦</div>
-        <h2>文字分析報告</h2>
-        <div class="price">NT$ 1,500</div>
-        <ul>
-          <li>聚焦 1～2 個核心問題</li>
-          <li>含 3～5 年節奏與風險提示</li>
-          <li>交付：文字報告（可保存/轉傳）</li>
-        </ul>
-        <div class="line"></div>
-        <div class="small">交付時間：填寫完成後 <span class="mono">2–3</span> 個工作天（你可自行調整）</div>
-        <a class="btn primary" href="https://forms.gle/WNTmAMHUHEKQfpdZ9" target="_blank" rel="noopener">我想要文字報告</a>
-      </div>
-
-      <div class="card priceBox">
-        <div class="tag">需要釐清細節</div>
-        <h2>報告＋30 分鐘通話</h2>
-        <div class="price">NT$ 2,500</div>
-        <ul>
-          <li>先交付文字報告</li>
-          <li>再用 30 分鐘把你最卡的點釐清</li>
-          <li>適合「需要把行動排程」的人</li>
-        </ul>
-        <div class="line"></div>
-        <div class="small">通話形式：LINE/Google Meet（你可自行選）</div>
-        <a class="btn success" href="https://forms.gle/WNTmAMHUHEKQfpdZ9" target="_blank" rel="noopener">我想加購通話</a>
-      </div>
-    </div>
-
-    <!-- FAQ -->
-    <div id="faq" class="section card faq">
-      <h2>常見問題</h2>
-
-      <h3>Q1：這是算命嗎？</h3>
-      <div class="small">
-        不是。本服務是「人生決策分析」。我會使用紫微斗數作為結構參考，但輸出重點放在：你當下條件下，什麼選擇更有風險、怎麼做比較不後悔。
-      </div>
-
-      <h3>Q2：你會保證結果嗎？</h3>
-      <div class="small">
-        不會，也不該。任何負責任的分析都只能提供「風險與節奏」，決策與結果仍由你與現實共同決定。
-      </div>
-
-      <h3>Q3：我出生時間不確定怎麼辦？</h3>
-      <div class="small">
-        仍可做「弱時辰版本」：我會以你已知資訊做較保守的分析，並標註不確定性，避免硬推結論。
-      </div>
-
-      <h3>Q4：你會不會講得太直接？</h3>
-      <div class="small">
-        會。你如果要的是「好聽」而不是「可用」，這個服務不一定適合你。
-      </div>
-
-      <div class="line"></div>
-      <div class="notice">
-        <strong>免責聲明</strong><br/>
-        本分析為人生決策參考，非命理、非醫療、非投資建議，亦不提供結果保證。所有選擇仍需由當事人自行判斷並承擔。
-      </div>
-    </div>
-
-    <!-- CONTACT -->
-    <div id="contact" class="section card">
-      <h2>聯絡方式</h2>
-      <div class="small">
-        你可以把聯絡方式放這裡（例如 LINE ID、Email、IG）。<br/>
-        建議至少放一個「可查到你的管道」增加信任感。<br/><br/>
-        範例：<br/>
-        - LINE：<span class="mono">@yourlineid</span><br/>
-        - Email：<span class="mono">you@example.com</span>
-      </div>
-    </div>
-
-    <footer>
-      © <span id="y"></span> 人生決策結構分析｜本頁為單頁說明站，請將 <span class="mono">https://forms.gle/WNTmAMHUHEKQfpdZ9</span> 替換為你的表單連結。
-    </footer>
   </div>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="card">
+      <div class="kicker">不是算命｜結構分析 × 現實決策</div>
+      <h1>我不幫你預測命運，<br>我幫你把當下的重要選擇想清楚。</h1>
+      <p class="lead">
+        適合卡在工作、家庭、財務與人生方向抉擇的人。
+        分析你的節奏、風險與下一步行動。
+      </p>
+
+      <div class="ctaRow">
+        <a class="btn primary"
+           href="https://p.ecpay.com.tw/938647B"
+           target="_blank" rel="noopener">
+          文字分析報告 NT$1500
+        </a>
+
+        <a class="btn success"
+           href="https://p.ecpay.com.tw/E2D9859"
+           target="_blank" rel="noopener">
+          文字報告＋通話 NT$2500
+        </a>
+      </div>
+
+      <div class="pillrow">
+        <span class="pill">轉職與方向</span>
+        <span class="pill">財務與房貸</span>
+        <span class="pill">人生節奏</span>
+        <span class="pill">避免錯誤決策</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>你會得到的是「可用的判斷」</h2>
+      <div class="line"></div>
+      <div class="notice">
+        <strong>我會做：</strong> 拆結構、找風險、給行動建議<br>
+        <strong>我不做：</strong> 保證結果、情緒安慰、投資明牌
+      </div>
+    </div>
+  </div>
+
+  <!-- WHO -->
+  <div id="who" class="section grid">
+    <div class="card">
+      <h2>適合你，如果你…</h2>
+      <ul>
+        <li>正在考慮轉職或重大選擇</li>
+        <li>覺得一直很努力卻很卡</li>
+        <li>想知道現在該守還是該動</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>不適合你，如果你…</h2>
+      <ul>
+        <li>想要保證結果</li>
+        <li>只想聽好話</li>
+        <li>不願為決定負責</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>常見分析主題</h2>
+      <ul>
+        <li>工作與方向選擇</li>
+        <li>家庭與責任壓力</li>
+        <li>財務節奏與風險</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div id="pricing" class="section split">
+    <div class="card">
+      <h2>文字分析報告</h2>
+      <div class="price">NT$1,500</div>
+      <ul>
+        <li>客製化文字分析</li>
+        <li>3～5 年節奏與風險</li>
+        <li>Email 回覆交付</li>
+      </ul>
+      <a class="btn primary"
+         href="https://p.ecpay.com.tw/938647B"
+         target="_blank" rel="noopener">
+        前往付款
+      </a>
+    </div>
+
+    <div class="card">
+      <h2>文字報告＋30 分鐘通話</h2>
+      <div class="price">NT$2,500</div>
+      <ul>
+        <li>文字分析報告</li>
+        <li>30 分鐘通話說明</li>
+        <li>適合需要釐清細節者</li>
+      </ul>
+      <a class="btn success"
+         href="https://p.ecpay.com.tw/E2D9859"
+         target="_blank" rel="noopener">
+        前往付款
+      </a>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div id="faq" class="section card">
+    <h2>常見問題</h2>
+    <p class="small">
+      本服務為人生決策分析與參考，非命理、非醫療、非投資建議，
+      不提供任何結果保證。
+    </p>
+  </div>
+
+  <footer>
+    © <span id="y"></span> 人生決策結構分析
+  </footer>
+</div>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
