@@ -4,95 +4,191 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>人生卡關怎麼辦？轉職、方向選擇的人生決策結構分析</title>
-  <meta name="description" content="在人生轉職、方向選擇、家庭與財務壓力下，協助你把重要決策想清楚的人生決策結構分析服務。不是算命，是風險與節奏判斷。" />
+  <title>人生卡關怎麼辦？轉職、方向選擇｜人生決策結構分析（含節奏與風險）</title>
+  <meta name="description" content="轉職猶豫、方向選擇、家庭與財務壓力卡關時，提供人生決策結構分析：拆解選項、辨識風險、判斷節奏與時機。不是算命，不保證結果，但讓你做出更不後悔的決定。" />
 
   <style>
     :root{
-      --bg:#0b0f19; --card:#11172a; --muted:#a7b0c3; --text:#eef2ff;
-      --accent:#7c3aed; --accent2:#22c55e; --line:#22304f;
+      --bg:#0b0f19; --card:#0f1630;
+      --muted:#a7b0c3; --text:#eef2ff;
+      --accent:#7c3aed; --accentB:#2563eb; --good:#22c55e;
+      --line:rgba(255,255,255,.10);
+      --shadow: 0 18px 55px rgba(0,0,0,.35);
     }
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
                    "Noto Sans TC", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
-      background: radial-gradient(1200px 800px at 20% 0%, #1a1f36 0%, var(--bg) 55%);
+      background:
+        radial-gradient(1100px 800px at 20% 0%, rgba(124,58,237,.30) 0%, rgba(11,15,25,0) 55%),
+        radial-gradient(900px 700px at 90% 10%, rgba(37,99,235,.28) 0%, rgba(11,15,25,0) 55%),
+        linear-gradient(180deg, #070a12 0%, var(--bg) 40%, #070a12 100%);
       color:var(--text);
-      line-height:1.6;
+      line-height:1.65;
     }
     a{color:inherit; text-decoration:none}
-    .wrap{max-width:980px; margin:0 auto; padding:28px 18px 80px}
-
+    .wrap{max-width:1020px; margin:0 auto; padding:26px 18px 110px}
     .topbar{
       display:flex; align-items:center; justify-content:space-between;
-      gap:12px; position:sticky; top:0; padding:12px 0;
+      gap:12px; position:sticky; top:0; padding:10px 0;
       backdrop-filter: blur(10px);
+      z-index:10;
     }
-    .brand{display:flex; align-items:center; gap:10px; font-weight:700}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.5px}
     .dot{width:10px; height:10px; border-radius:999px;
          background:linear-gradient(135deg,var(--accent),#60a5fa)}
     .nav{display:flex; gap:14px; flex-wrap:wrap}
     .nav a{font-size:14px; color:var(--muted)}
     .nav a:hover{color:var(--text)}
+    .chip{
+      font-size:12px; padding:6px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:#d6dcff;
+    }
 
-    .hero{margin-top:22px; display:grid; grid-template-columns:1.2fr .8fr; gap:18px}
-    @media (max-width:860px){
+    .hero{margin-top:18px; display:grid; grid-template-columns:1.35fr .65fr; gap:14px}
+    @media (max-width:900px){
       .hero{grid-template-columns:1fr}
       .topbar{position:relative}
+      .nav{display:none}
     }
 
     .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.10);
       border-radius:18px; padding:22px;
-      box-shadow: 0 10px 35px rgba(0,0,0,.25);
+      box-shadow: var(--shadow);
+    }
+    .card.soft{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
     }
 
     .kicker{color:var(--muted); font-size:14px}
-    h1{margin:10px 0; font-size:34px; line-height:1.15}
+    h1{margin:10px 0 8px; font-size:34px; line-height:1.15}
+    @media (max-width:420px){ h1{font-size:28px} }
     h2{margin:0 0 10px; font-size:20px}
-    .lead{color:#dbe4ff; font-size:16px}
+    h3{margin:0 0 8px; font-size:16px}
+    .lead{color:#dbe4ff; font-size:16px; margin:10px 0 0}
+    .sublead{color:var(--muted); font-size:14px; margin:12px 0 0}
 
     .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
-      padding:11px 16px; border-radius:12px;
-      border:1px solid rgba(255,255,255,.12);
+      padding:12px 16px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
       background:rgba(255,255,255,.06);
-      font-weight:600; cursor:pointer;
+      font-weight:750; cursor:pointer;
+      transition: transform .12s ease, filter .12s ease;
     }
     .btn.primary{
-      background:linear-gradient(135deg, var(--accent), #2563eb);
+      background:linear-gradient(135deg, var(--accent), var(--accentB));
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow: 0 12px 30px rgba(124,58,237,.22);
     }
+    .btn.ghost:hover{filter:brightness(1.12)}
     .btn:hover{transform: translateY(-1px)}
 
     .pillrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
     .pill{
       font-size:12px; padding:6px 10px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(124,58,237,.12); color:#d6dcff;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(124,58,237,.13);
+      color:#d6dcff;
     }
 
-    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:28px}
-    @media (max-width:860px){ .grid{grid-template-columns:1fr} }
+    .numbers{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:14px}
+    .num{
+      padding:14px; border-radius:14px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .num b{display:block; font-size:18px}
+    .num span{display:block; font-size:12px; color:var(--muted); margin-top:2px}
+
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:22px}
+    @media (max-width:900px){ .grid{grid-template-columns:1fr} }
 
     ul{margin:10px 0 0; padding-left:18px; color:#dbe4ff}
-    .section{margin-top:32px}
+    li{margin:6px 0}
+    .section{margin-top:28px}
     .split{display:grid; grid-template-columns:1fr 1fr; gap:14px}
-    @media (max-width:860px){ .split{grid-template-columns:1fr} }
+    @media (max-width:900px){ .split{grid-template-columns:1fr} }
 
     .notice{
-      border-left:3px solid rgba(124,58,237,.8);
+      border-left:3px solid rgba(124,58,237,.85);
       padding:12px 14px;
       background:rgba(124,58,237,.10);
       border-radius:12px;
       margin-top:14px;
     }
-
-    .line{height:1px; background:rgba(255,255,255,.10); margin:18px 0}
-    footer{margin-top:40px; font-size:12px; color:var(--muted)}
+    .ok{
+      border-left:3px solid rgba(34,197,94,.95);
+      background:rgba(34,197,94,.10);
+    }
+    .line{height:1px; background:var(--line); margin:16px 0}
     .small{font-size:13px; color:var(--muted)}
+    .muted{color:var(--muted)}
+    .tagline{
+      display:flex; gap:8px; flex-wrap:wrap; margin-top:10px;
+    }
+
+    /* Pricing cards */
+    .pricing{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    @media (max-width:900px){ .pricing{grid-template-columns:1fr} }
+    .priceCard{
+      padding:18px; border-radius:18px;
+      border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .priceCard.featured{
+      border:1px solid rgba(124,58,237,.55);
+      box-shadow: 0 22px 70px rgba(124,58,237,.18);
+    }
+    .badge{
+      position:absolute; top:12px; right:12px;
+      font-size:12px; padding:6px 10px; border-radius:999px;
+      background:rgba(124,58,237,.18);
+      border:1px solid rgba(124,58,237,.40);
+      color:#e9ddff;
+      font-weight:700;
+    }
+    .price{
+      font-size:22px; font-weight:900; letter-spacing:.3px;
+      margin-top:4px;
+    }
+    .price small{font-size:12px; color:var(--muted); font-weight:600}
+    .bullets{margin-top:10px}
+    .bullets li{color:#dbe4ff}
+
+    details{
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      border-radius:14px;
+      padding:12px 14px;
+      margin-top:10px;
+    }
+    summary{cursor:pointer; font-weight:750}
+    summary::marker{color:rgba(255,255,255,.55)}
+    details p{margin:10px 0 0; color:#dbe4ff}
+    .stickyCta{
+      position:fixed; left:0; right:0; bottom:0;
+      background:rgba(8,10,18,.65);
+      backdrop-filter: blur(10px);
+      border-top:1px solid rgba(255,255,255,.10);
+      z-index:20;
+    }
+    .stickyInner{
+      max-width:1020px; margin:0 auto; padding:10px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+    .stickyInner .hint{font-size:12px; color:var(--muted)}
+    footer{margin-top:34px; font-size:12px; color:var(--muted)}
   </style>
 </head>
 
@@ -103,21 +199,48 @@
     <div class="brand"><span class="dot"></span> 人生決策結構分析</div>
     <div class="nav">
       <a href="#who">適合誰</a>
-      <a href="#deliver">服務內容</a>
-      <a href="#pricing">流程</a>
+      <a href="#deliver">你會拿到什麼</a>
+      <a href="#method">我們怎麼分析</a>
+      <a href="#pricing">方案與流程</a>
       <a href="#faq">FAQ</a>
+      <a href="#contact">聯絡</a>
     </div>
+    <span class="chip">對外版本｜不露個人身份</span>
   </div>
 
   <!-- HERO -->
   <div class="hero">
     <div class="card">
-      <div class="kicker">不是算命｜結構分析 × 現實決策</div>
-      <h1>人生卡關、轉職猶豫、方向選擇時，<br>先把決定想清楚。</h1>
+      <div class="kicker">不是算命｜結構化分析 × 現實決策（含節奏與風險）</div>
+
+      <h1>人生卡關、轉職猶豫、方向選擇時，<br>先把「決定」做對。</h1>
+
       <p class="lead">
-        適合在工作、家庭、財務與人生方向中感到卡住的人，
-        透過結構分析釐清風險、節奏與下一步。
+        你不需要更多建議，你需要的是：把選項拆開、把風險看清、把節奏排出來。<br>
+        這是一個「讓你更敢做決定」的分析服務——不保證結果，但降低後悔機率。
       </p>
+
+      <div class="tagline">
+        <span class="pill">轉職是否該換</span>
+        <span class="pill">家庭 vs 工作取捨</span>
+        <span class="pill">中年方向調整</span>
+        <span class="pill">避免衝動決策</span>
+      </div>
+
+      <div class="numbers">
+        <div class="num">
+          <b>清楚 3 件事</b>
+          <span>你真正要的是什麼、你怕的是什麼、你能承擔什麼</span>
+        </div>
+        <div class="num">
+          <b>看懂 2 個風險</b>
+          <span>短期代價 vs 長期代價（不再只靠感覺）</span>
+        </div>
+        <div class="num">
+          <b>排出 1 條路徑</b>
+          <span>下一步怎麼走、什麼時候走、怎麼留退路</span>
+        </div>
+      </div>
 
       <div class="ctaRow">
         <a class="btn primary"
@@ -125,32 +248,36 @@
            target="_blank" rel="noopener">
           立即填寫資料表（開始分析）
         </a>
+        <a class="btn ghost" href="#pricing">先看方案與流程</a>
       </div>
+
+      <p class="sublead">你填表 → 我回信確認 → 付款後開始分析 → 交付「可執行的結論與建議」。</p>
 
       <div class="notice">
         <strong>付款方式說明</strong><br>
-        目前信用卡金流系統申請中，為確保服務品質與資訊安全，<br>
-        暫採銀行轉帳方式收款。<br><br>
-        填寫資料表後，我會於 24 小時內寄送付款資訊與確認信件，<br>
-        款項確認後即進入分析流程。<br><br>
+        目前信用卡金流系統申請中，為確保服務品質與資訊安全，暫採銀行轉帳方式收款。<br>
+        填寫資料表後，我會於 <strong>24 小時內</strong> 寄送付款資訊與確認信件；款項確認後即進入分析流程。<br>
         （金流系統開通後，將全面改為線上付款）
-      </div>
-
-      <div class="pillrow">
-        <span class="pill">轉職是否該換</span>
-        <span class="pill">人生方向選擇</span>
-        <span class="pill">中年卡關</span>
-        <span class="pill">避免後悔決定</span>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card soft">
       <h2>這不是預言，是判斷</h2>
       <div class="line"></div>
-      <div class="notice">
-        <strong>我會做：</strong> 拆解選項、辨識風險、整理節奏<br>
-        <strong>我不做：</strong> 保證結果、情緒安慰、投資建議
+
+      <div class="notice ok">
+        <strong>我會做：</strong><br>
+        拆解選項、辨識風險、整理節奏、提出可執行下一步<br><br>
+        <strong>我不做：</strong><br>
+        保證結果、情緒安慰、醫療/心理諮商、投資建議
       </div>
+
+      <div class="line"></div>
+      <p class="small">
+        很多人卡住不是因為不努力，<br>
+        而是「資訊太多、壓力太大、選項太像」。<br>
+        這個服務的目的：讓你用更少的情緒成本，做出更能承擔的決定。
+      </p>
     </div>
   </div>
 
@@ -159,36 +286,195 @@
     <div class="card">
       <h2>適合你，如果你…</h2>
       <ul>
-        <li>正在考慮轉職或重大選擇</li>
-        <li>對未來方向感到猶豫</li>
-        <li>不想只靠感覺做決定</li>
+        <li>正在考慮轉職、搬家、結婚/離職等重大選擇</li>
+        <li>選項都「有道理」但你無法拍板</li>
+        <li>不想只靠朋友建議或一時情緒</li>
       </ul>
     </div>
     <div class="card">
       <h2>不適合你，如果你…</h2>
       <ul>
-        <li>想要保證結果</li>
-        <li>只想聽好話</li>
-        <li>不願為選擇負責</li>
+        <li>想要「保證一定成功」或要我替你負責</li>
+        <li>只想聽好話，不能接受風險提醒</li>
+        <li>不願提供基本背景資訊（資料不夠就無法分析）</li>
       </ul>
     </div>
     <div class="card">
-      <h2>常見人生卡關情境</h2>
+      <h2>最常見卡關情境</h2>
       <ul>
-        <li>轉職是否該換</li>
-        <li>家庭與工作的取捨</li>
-        <li>中年方向調整</li>
+        <li>轉職是否該換？換了怕後悔，不換又不甘心</li>
+        <li>家庭與工作如何取捨？該守、該攻、還是先調整</li>
+        <li>中年方向重整：體力、時間、責任都變了</li>
       </ul>
+    </div>
+  </div>
+
+  <!-- DELIVER -->
+  <div id="deliver" class="section split">
+    <div class="card">
+      <h2>你會拿到什麼（交付物）</h2>
+      <ul>
+        <li><strong>決策比較表</strong>：把 2–4 個選項放到同一張表，清楚比較</li>
+        <li><strong>風險地圖</strong>：短期/長期代價、不可逆風險、可控風險</li>
+        <li><strong>節奏與時機建議</strong>：什麼該現在做、什麼該先準備、什麼要避開</li>
+        <li><strong>下一步行動清單</strong>：你一週內能做的 3–7 個具體動作</li>
+      </ul>
+      <div class="notice">
+        <strong>你最後會得到的是：</strong><br>
+        「我知道我要選哪個」或「我知道我不選哪個」，並且知道原因。
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>常見的「卡住原因」</h2>
+      <div class="line"></div>
+      <ul>
+        <li>你以為在選 A / B，其實在選「安全感」</li>
+        <li>你以為缺資訊，其實缺「判斷順序」</li>
+        <li>你以為怕失敗，其實怕「不可逆」</li>
+      </ul>
+      <div class="line"></div>
+      <p class="small">
+        這個服務會把「你腦中混在一起的東西」拆開：<br>
+        需求、代價、風險、節奏、退路。拆開後，決定就比較容易。
+      </p>
+    </div>
+  </div>
+
+  <!-- METHOD -->
+  <div id="method" class="section card">
+    <h2>我們怎麼分析（不是算命，但會參考命盤結構）</h2>
+    <p class="small">
+      本服務以「現實條件」為核心：你的背景、目標、限制、資源、選項。<br>
+      同時參考<strong>東方命盤系統（紫微斗數）</strong>作為「人生節奏/壓力型態」的結構資訊，
+      用來輔助判斷：你更容易在哪些階段卡住、什麼節奏適合你、哪些風險要提前避開。<br>
+      你可以把它理解成：<strong>理性分析為主、命盤作為輔助視角</strong>（不是神諭、不是保證）。
+    </p>
+
+    <div class="grid">
+      <div class="card soft">
+        <h3>Step 1｜釐清問題與選項</h3>
+        <p class="small">把「你以為在選的」與「你真正害怕的」拆開，整理成可比較的選項。</p>
+      </div>
+      <div class="card soft">
+        <h3>Step 2｜風險與節奏判斷</h3>
+        <p class="small">用現實資料 + 命盤結構，判斷短期/長期代價、衝突點與可行節奏。</p>
+      </div>
+      <div class="card soft">
+        <h3>Step 3｜結論與下一步</h3>
+        <p class="small">交付「你能做的選擇」與「你能走的路」，附上退路與一週行動清單。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div id="pricing" class="section">
+    <div class="card">
+      <h2>方案與流程</h2>
+      <p class="small">
+        你可以先從輕量開始，也可以一次做完整。<br>
+        （若你想先試試看我們的方式，建議從 <strong>標準版</strong> 開始。）
+      </p>
+
+      <div class="pricing" style="margin-top:14px;">
+        <div class="priceCard">
+          <h3>輕量版</h3>
+          <div class="price">NT$ 888 <small>／單一主題</small></div>
+          <ul class="bullets">
+            <li>1 個問題（例如：轉職要不要換）</li>
+            <li>2 個選項比較</li>
+            <li>重點風險提醒 + 下一步 3 件事</li>
+            <li>回覆形式：文字結論（精簡版）</li>
+          </ul>
+          <div class="line"></div>
+          <a class="btn primary" href="https://forms.gle/WNTmAMHUHEKQfpdZ9" target="_blank" rel="noopener">選這個填表</a>
+          <p class="small" style="margin:10px 0 0;">適合：想先確認這套分析方式是否合你。</p>
+        </div>
+
+        <div class="priceCard featured">
+          <span class="badge">最推薦</span>
+          <h3>標準版</h3>
+          <div class="price">NT$ 1,588 <small>／最常用</small></div>
+          <ul class="bullets">
+            <li>1 個主題 + 2–4 個選項比較</li>
+            <li>風險地圖（短期/長期、可控/不可控）</li>
+            <li>節奏與時機建議（何時做、先準備什麼）</li>
+            <li>下一步行動清單（3–7 件可執行）</li>
+          </ul>
+          <div class="line"></div>
+          <a class="btn primary" href="https://forms.gle/WNTmAMHUHEKQfpdZ9" target="_blank" rel="noopener">選這個填表</a>
+          <p class="small" style="margin:10px 0 0;">適合：真的卡住，想要「能執行」的建議。</p>
+        </div>
+
+        <div class="priceCard">
+          <h3>完整版</h3>
+          <div class="price">NT$ 2,588 <small>／人生階段整合</small></div>
+          <ul class="bullets">
+            <li>多主題整合（工作/家庭/財務/方向）</li>
+            <li>更完整的人生節奏與壓力型態分析</li>
+            <li>「守/攻/轉向」策略建議</li>
+            <li>可延伸：90 天行動路線圖</li>
+          </ul>
+          <div class="line"></div>
+          <a class="btn primary" href="https://forms.gle/WNTmAMHUHEKQfpdZ9" target="_blank" rel="noopener">選這個填表</a>
+          <p class="small" style="margin:10px 0 0;">適合：重大轉折期、需要整體規劃的人。</p>
+        </div>
+      </div>
+
+      <div class="line"></div>
+      <h3>服務流程</h3>
+      <ul>
+        <li><strong>填表</strong>：你提供背景、選項、你最在意的點</li>
+        <li><strong>我回信確認</strong>：確認主題與版本，寄付款資訊（24 小時內）</li>
+        <li><strong>付款後開始分析</strong>：依版本交付分析結論</li>
+      </ul>
+
+      <div class="notice">
+        <strong>隱私與保密</strong><br>
+        你提供的內容僅用於本次分析，不對外公開，不做社群曝光與案例分享（除非你主動同意）。
+      </div>
     </div>
   </div>
 
   <!-- FAQ -->
   <div id="faq" class="section card">
-    <h2>常見問題</h2>
+    <h2>FAQ（你可能最在意的）</h2>
     <p class="small">
       本服務為人生決策分析與參考，非命理、非醫療、非心理諮商、非投資建議，
-      不提供任何結果保證。
+      不提供任何結果保證。你仍需為自己的選擇負責。
     </p>
+
+    <details>
+      <summary>Q：這到底是不是紫微斗數算命？</summary>
+      <p>
+        A：不是「算命求吉凶」，而是把紫微命盤當作「結構資訊」來輔助判斷節奏與壓力型態。
+        核心仍是你的現實條件與選項比較。你可以把它理解成：理性分析為主、命盤為輔助視角。
+      </p>
+    </details>
+
+    <details>
+      <summary>Q：你會不會直接告訴我選 A 或 B？</summary>
+      <p>
+        A：我會給出「哪個選項在你的條件下更穩、哪個風險更大、怎麼走能留退路」。
+        有時候結論是「先不選、先準備」，讓你避免衝動決策。
+      </p>
+    </details>
+
+    <details>
+      <summary>Q：我很怕被推銷或被情緒勒索，這裡會嗎？</summary>
+      <p>
+        A：不會。你填表、確認版本、付款後才開始分析；不做話術、不賣焦慮、不保證神準。
+        我更在意的是「你看完能不能做下一步」。
+      </p>
+    </details>
+
+    <details>
+      <summary>Q：多久會收到結果？</summary>
+      <p>
+        A：你填表後 24 小時內會收到我的確認信與付款資訊。
+        付款確認後開始進入分析流程（時間依版本與資料完整度而定）。
+      </p>
+    </details>
   </div>
 
   <!-- SEO -->
@@ -203,9 +489,28 @@
     </p>
     <p class="small">
       本站提供的人生決策結構分析服務，
-      適合正在思考轉職、中年轉向、
-      或人生方向調整的人，
+      適合正在思考轉職、中年轉向、或人生方向調整的人，
       協助你在重要時刻把選擇想清楚。
+    </p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section card">
+    <h2>聯絡與開始</h2>
+    <p class="small">
+      最快開始方式：直接填寫資料表。<br>
+      若你不確定選哪個方案，填表時註明「我不確定版本」，我會回信建議你最適合的版本。
+    </p>
+    <div class="ctaRow">
+      <a class="btn primary"
+         href="https://forms.gle/WNTmAMHUHEKQfpdZ9"
+         target="_blank" rel="noopener">
+        立即填寫資料表（開始分析）
+      </a>
+      <a class="btn ghost" href="#method">先看分析方法</a>
+    </div>
+    <p class="small" style="margin-top:10px;">
+      提醒：我不提供投資建議／醫療心理諮商；若你正在急性情緒危機，建議先尋求專業協助。
     </p>
   </section>
 
@@ -213,6 +518,21 @@
     © <span id="y"></span> 人生決策結構分析
   </footer>
 
+</div>
+
+<!-- Sticky CTA -->
+<div class="stickyCta">
+  <div class="stickyInner">
+    <div>
+      <div style="font-weight:800;">卡住別硬撐，先把選擇拆開。</div>
+      <div class="hint">填表 2–5 分鐘，24 小時內回信確認。</div>
+    </div>
+    <a class="btn primary"
+       href="https://forms.gle/WNTmAMHUHEKQfpdZ9"
+       target="_blank" rel="noopener">
+      立即填表
+    </a>
+  </div>
 </div>
 
 <script>
